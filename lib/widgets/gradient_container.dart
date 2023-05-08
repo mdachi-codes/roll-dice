@@ -14,13 +14,29 @@ class GradientContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: colors,
-            begin: startAlignment,
-            end: endAlignment),
+            colors: colors, begin: startAlignment, end: endAlignment),
       ),
-      child: const Center(
-        child: StyledText("Hello World!"),
-      ),
+      child: Center(
+          child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            'assets/images/dice-3.png',
+            width: 200,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextButton(
+              onPressed: rollDice,
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  textStyle: const TextStyle(fontSize: 20)),
+              child: const Text('Roll dice'))
+        ],
+      )),
     );
   }
+
+  void rollDice() {}
 }
